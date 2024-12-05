@@ -114,7 +114,7 @@ window.onclick = function(event) {
 function redirectToSite(event) {
     event.preventDefault(); // Prevent default form submission
     alert("Redirecting to the site...");
-    window.location.href = "https://www.google.com/"; // Replace with your desired URL
+    window.location.href = "[(https://786promax.github.io/voie.github.io/)](https://786promax.github.io/voie.github.io/)"; // Replace with your desired URL
 }
 </script>
 
