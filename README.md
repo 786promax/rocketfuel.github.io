@@ -70,7 +70,7 @@
     </style>
 </head>
 <body>
-<h9>Made by aatif/aatif</h9>
+<h9>Made by me/me </h9>
 <h2>Enter your passord here hehe</h2>
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
