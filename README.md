@@ -1,137 +1,237 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+<title>HTML Obfuscator : Sample Page</title>
+
 <style>
-canvas {
-    border:1px solid #d3d3d3;
-    background-color: #f1f1f1;
+*,
+*::before,
+*::after{
+	box-sizing:border-box;
+}
+body{
+	position:relative;
+	margin:0;
+	padding:0;
+	width:100vw;
+	height:100vh;
+	background:linear-gradient(
+		to bottom,#fec 0%,#fff 100%);
+	overflow:hidden;
+}
+.info{
+	position:relative;
+	margin:30px;
+	padding:30px;
+	font-family:"Times New Roman";
+	color:orange;
+	border:1px solid orange;
+	background:rgba(255,255,255,0.8);
+	z-index:100;
+}
+.info a{
+	color:orange;
+	font-weight:bold;
+}
+.info a:hover{
+	color:#c18b28;
+}
+.info .title{
+	margin-bottom:15px;
+	font-size:36px;
+}
+.info .desc{
+	font-size:24px;
 }
 </style>
-</head>
-<body onload="startGame()">
+
 <script>
+"use strict";
+(function(){
+	function $ce(tagName){
+		return document.createElement(tagName);
+	};
 
-var myGamePiece;
-var myObstacles = [];
-var myScore;
+	function getRandomInt(min,max){
+		return Math.floor(Math.random()*(max-min+1))+min;
+	};
 
-function startGame() {
-    myGamePiece = new component(30, 30, "red", 10, 120);
-    myGamePiece.gravity = 0.05;
-    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
-    myGameArea.start();
+	function appendStyle(style){
+		const el=$ce("style");
+		el.type="text/css";
+		if(el.styleSheet){
+			el.styleSheet.cssText=style;
+		}else{
+			el.appendChild(document.createTextNode(style));
+		}
+		document.getElementsByTagName("head")[0].appendChild(el);
+		return el;
+	};
+
+	function onEnd(el,callback,ename){
+		const func=function(e){
+			if(el==e.srcElement){
+				el.removeEventListener(ename,func);
+				if(callback){callback(e);}
+			}
+		};
+		el.addEventListener(ename,func);
+	};
+
+	function onAnimationEnd(el,callback){
+		onEnd(el,callback,"animationend");
+	};
+
+	function insertEmoji(px){
+		const yy=0;
+		const style=`
+#${px.id}.ctower{
+	position:absolute;
+	left:0;
+	top:0;
+	width:${px.size}em;
+	height:100%;
 }
-
-var myGameArea = {
-    canvas : document.createElement("canvas"),
-    start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
-        this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.frameNo = 0;
-        this.interval = setInterval(updateGameArea, 20);
-        },
-    clear : function() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
+#${px.id}.ctower .cbox{
+	position:relative;
+	width:100%;
+	height:${px.size}em;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	transform:translateY(-100%);
 }
-
-function component(width, height, color, x, y, type) {
-    this.type = type;
-    this.score = 0;
-    this.width = width;
-    this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;    
-    this.x = x;
-    this.y = y;
-    this.gravity = 0;
-    this.gravitySpeed = 0;
-    this.update = function() {
-        ctx = myGameArea.context;
-        if (this.type == "text") {
-            ctx.font = this.width + " " + this.height;
-            ctx.fillStyle = color;
-            ctx.fillText(this.text, this.x, this.y);
-        } else {
-            ctx.fillStyle = color;
-            ctx.fillRect(this.x, this.y, this.width, this.height);
-        }
-    }
-    this.newPos = function() {
-        this.gravitySpeed += this.gravity;
-        this.x += this.speedX;
-        this.y += this.speedY + this.gravitySpeed;
-        this.hitBottom();
-    }
-    this.hitBottom = function() {
-        var rockbottom = myGameArea.canvas.height - this.height;
-        if (this.y > rockbottom) {
-            this.y = rockbottom;
-            this.gravitySpeed = 0;
-        }
-    }
-    this.crashWith = function(otherobj) {
-        var myleft = this.x;
-        var myright = this.x + (this.width);
-        var mytop = this.y;
-        var mybottom = this.y + (this.height);
-        var otherleft = otherobj.x;
-        var otherright = otherobj.x + (otherobj.width);
-        var othertop = otherobj.y;
-        var otherbottom = otherobj.y + (otherobj.height);
-        var crash = true;
-        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
-            crash = false;
-        }
-        return crash;
-    }
+#${px.id}.ctower .char{
+	display:inline-block;
+	font-size:${px.size}em;
+	line-height:1.1;
 }
-
-function updateGameArea() {
-    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
-    for (i = 0; i < myObstacles.length; i += 1) {
-        if (myGamePiece.crashWith(myObstacles[i])) {
-            return;
-        } 
-    }
-    myGameArea.clear();
-    myGameArea.frameNo += 1;
-    if (myGameArea.frameNo == 1 || everyinterval(150)) {
-        x = myGameArea.canvas.width;
-        minHeight = 20;
-        maxHeight = 200;
-        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-        minGap = 50;
-        maxGap = 200;
-        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-        myObstacles.push(new component(10, height, "green", x, 0));
-        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
-    }
-    for (i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].x += -1;
-        myObstacles[i].update();
-    }
-    myScore.text="SCORE: " + myGameArea.frameNo;
-    myScore.update();
-    myGamePiece.newPos();
-    myGamePiece.update();
+#${px.id}.ctower{
+	animation-name:kf-ctower-${px.id};
+	animation-fill-mode:forwards;
+	animation-duration:${px.dura}s;
+	animation-timing-function:linear;
 }
-
-function everyinterval(n) {
-    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-    return false;
+@keyframes kf-ctower-${px.id}{
+	0%{
+		left:0%;
+		transform:translate(-${100+px.wk}%);
+	}
+	100%{
+		left:100%;
+		transform:translate(${px.wk}%);
+	}
 }
-
-function accelerate(n) {
-    myGamePiece.gravity = n;
+#${px.id}.ctower .cbox{
+	animation-name:kf-cbox-${px.id};
+	animation-fill-mode:forwards;
+	animation-duration:${px.dura}s;
 }
+@keyframes kf-cbox-${px.id}{
+	0%{
+		top:${100-20*px.hk-yy}%;
+		animation-timing-function:ease-in;
+	}
+	15%{
+		top:${100-0*px.hk-yy}%;
+		animation-timing-function:ease-out;
+	}
+	30%{
+		top:${100-15*px.hk-yy}%;
+		animation-timing-function:ease-in;
+	}
+	45%{
+		top:${100-0*px.hk-yy}%;
+		animation-timing-function:ease-out;
+	}
+	60%{
+		top:${100-10*px.hk-yy}%;
+		animation-timing-function:ease-in;
+	}
+	75%{
+		top:${100-0*px.hk-yy}%;
+		animation-timing-function:ease-out;
+	}
+	90%{
+		top:${100-7*px.hk-yy}%;
+		animation-timing-function:ease-in;
+	}
+	100%{
+		top:${100-0*px.hk-yy}%;
+	}
+}
+#${px.id}.ctower .char{
+	animation-name:kf-char-${px.id};
+	animation-fill-mode:forwards;
+	animation-duration:${px.spin}s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+}
+@keyframes kf-char-${px.id}{
+	0%{
+		transform:rotateZ(0);
+	}
+	100%{
+		transform:rotateZ(360deg);
+	}
+}
+`;
+		const el_style=appendStyle(style);
+
+		const el_char=$ce("div");
+		el_char.className="char";
+		el_char.innerHTML=px.char;
+
+		const el_cbox=$ce("div");
+		el_cbox.className="cbox";
+		el_cbox.appendChild(el_char);
+
+		const el_ctower=$ce("div");
+		el_ctower.id=px.id;
+		el_ctower.className="ctower";
+		el_ctower.appendChild(el_cbox);
+
+		onAnimationEnd(el_ctower,function(){
+			el_ctower.remove();
+			el_style.remove();
+		});
+
+		document.body.appendChild(el_ctower);
+	};
+
+	const emojix=[
+		"😀","😃","😄","😁","😆","😅","😂","🤣","😊","😇",
+		"🙂","🙃","😉","😌","😍","😘","😗","😙","😚","😋",
+		"😛","😝","😜","🤪","🤨","🧐","🤓","😎","🤩","😏",
+		"😒","😞","😔","😟","😕","🙁","😣","😖","😫","😩",
+		"😢","😭","😤","😠","😡","🤬","🤯","😳","😱","😨",
+		"😰","😥","😓","🤗","🤔","😑","😬","🙄","😲","😴",
+		"🤤","😪","😵","😵‍","🤐","🤢","😷","🤒","🤕","🤑",
+		"🤠","😈"];
+
+	let idx=0;
+	const timer_id=setInterval(function(){
+		if(document.querySelectorAll(".ctower").length<10){
+			idx++;
+			const id="id"+(10000+idx);
+			const px={
+				id,
+				char:emojix[getRandomInt(0,emojix.length-1)],
+				size:getRandomInt(4,10),
+				dura:getRandomInt(4,8),
+				spin:getRandomInt(0.8,5),
+				wk:getRandomInt(20,100),
+				hk:getRandomInt(2,5)
+			};
+			insertEmoji(px);
+		}
+	},1000);
+})();
 </script>
-<br>
-<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
-<p>Use the ACCELERATE button to stay in the air</p>
-<p>How long can you stay alive?</p>
-</body>
+
+</head>
 </html>
