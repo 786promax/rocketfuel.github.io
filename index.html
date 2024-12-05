@@ -22,78 +22,39 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #04AA6D;
+        .fancy-button {
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient colors */
             color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 25px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: all 0.3s ease-in-out; /* Smooth transitions */
             border: none;
             cursor: pointer;
-            width: 100%;
         }
 
-        button:hover {
-            opacity: 0.8;
+        .fancy-button:hover {
+            transform: scale(1.05); /* Slightly increase size on hover */
+            background: linear-gradient(to right, #feb47b, #ff7e5f); /* Reverse gradient */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
         }
 
         .cancelbtn {
-            width: auto;
-            padding: 10px 18px;
             background-color: #f44336;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            border: 1px solid #888;
-            width: 80%;
-            padding: 20px;
-        }
-
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-        }
-
-        img.avatar {
-            width: 40%;
-            border-radius: 50%;
-        }
-
-        .close {
-            position: absolute;
-            right: 25px;
-            top: 0;
-            color: #000;
-            font-size: 35px;
+            color: white;
             font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
         }
 
-        .close:hover, .close:focus {
-            color: red;
-            cursor: pointer;
+        .cancelbtn:hover {
+            transform: scale(1.05);
+            background-color: #e53935;
         }
     </style>
 </head>
@@ -103,7 +64,6 @@
             Aatif's Website
         </span>
         <ul class="flex space-x-6 items-center font-mono text-white">
-            <!-- All links point to the same URL -->
             <a href="https://786promax.github.io/voie.github.io/"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">Home</li></a>
             <a href="https://786promax.github.io/voie.github.io/"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">Projects</li></a>
             <a href="https://786promax.github.io/voie.github.io/"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">Github</li></a>
@@ -114,8 +74,12 @@
         </ul>
     </nav>
 
-    <h2>Login Form</h2>
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    <h2 class="text-center mt-6 text-2xl font-semibold">Login Form</h2>
+    <div class="flex justify-center mt-4">
+        <button onclick="document.getElementById('id01').style.display='block'" class="fancy-button">
+            Open Login Form
+        </button>
+    </div>
 
     <div id="id01" class="modal">
         <div class="modal-content">
@@ -131,13 +95,15 @@
                     <label for="psw"><b>Password</b></label>
                     <input type="password" id="psw" placeholder="Enter Password" required>
 
-                    <button type="submit">Login</button>
+                    <button type="submit" class="fancy-button">Login</button>
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
                 </div>
                 <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                        Cancel
+                    </button>
                     <span class="psw">Forgot <a href="#">password?</a></span>
                 </div>
             </form>
@@ -157,7 +123,7 @@
         function redirectToSite(event) {
             event.preventDefault();
             alert("Redirecting to the site...");
-            window.location.href = "https://786promax.github.io/voie.github.io/"; // Replace with your desired URL
+            window.location.href = "https://786promax.github.io/voie.github.io/";
         }
 
         // Toggle dark mode
