@@ -1,29 +1,45 @@
-<html lang="en" id = "Html">
+<!DOCTYPE html>
+<html lang="en" id="Html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'selector',
+            darkMode: 'class',
             theme: {
                 extend: {
-                colors: {
-                    clifford: '#da373d',
-          }
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
         }
-      }
-    }
     </script>
 </head>
-<body class="bg-white dark:bg-slate-800 transition-colors">
-    <nav class="flex justify-between bg-gradient-to-r from-indigo-500 from 10% via-sky-500 via-30% to-emerald-500">
-        <span class="px-20 py-4 font-semibold text-xl text-white transform-gpu transition-transform hover:-translate-y-1">Aatif's Website</span>
-        <ul class="px-28 text-[17px] py-4 flex space-x-6 justify-end font-mono">
-            <a href="htme.jpg"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Home</li></a>
-            <a href="htme.jpg"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Projects</li></a>
-                    <a href="htme.jpg"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Join Us</li></a>
-            <button onclick="darkmode()" id = "darkmode-btn" class="transform-gpu transition-transform hover:-translate-y-1"><img class = "w-8" src="dark.svg"></button>
+<body class="flex flex-col items-start bg-gray-100 dark:bg-gray-900">
+    <nav class="flex justify-between w-full h-[74px] bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 p-4">
+        <span class="px-6 py-2 font-semibold text-xl text-white transition-transform transform hover:-translate-y-1">
+            Aatif's Website
+        </span>
+        <ul class="flex space-x-6 items-center font-mono text-white">
+            <a href="../htme.jpg"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">
+                Home
+            </li></a>
+            <a href="htme.jpg"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">
+                Projects
+            </li></a>
+            <a href="htme.jpg"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">
+                Github
+            </li></a>
+            <a href="htme.jpg"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">
+                Join Us
+            </li></a>
+            <button onclick="darkmode()" id="darkmode-btn" class="transform transition-transform hover:-translate-y-1">
+                <img class="w-8" src="../dark.svg" alt="Dark Mode">
+            </button>
+            <li></li>
         </ul>
     </nav>
 <head>
