@@ -1,9 +1,3 @@
-# **🌐 Supermutec's Website**
-
-A responsive and modern personal website showcasing **Supermutec's** work as a **Discord Bot Developer**. Built with simplicity and elegance in mind, the site provides a professional yet engaging user experience.
-
----
-
 ## **✨ Features**
 
 - **🌈 Gradient Navigation Bar**  
