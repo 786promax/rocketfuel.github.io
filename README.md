@@ -2,6 +2,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'selector',
+            theme: {
+                extend: {
+                colors: {
+                    clifford: '#da373d',
+          }
+        }
+      }
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-slate-800 transition-colors">
+    <nav class="flex justify-between bg-gradient-to-r from-indigo-500 from 10% via-sky-500 via-30% to-emerald-500">
+        <span class="px-20 py-4 font-semibold text-xl text-white transform-gpu transition-transform hover:-translate-y-1">Aatif's Website</span>
+        <ul class="px-28 text-[17px] py-4 flex space-x-6 justify-end font-mono">
+            <a href="htme.jpg"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Home</li></a>
+            <a href="htme.jpg"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Projects</li></a>
+                    <a href="htme.jpg"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Join Us</li></a>
+            <button onclick="darkmode()" id = "darkmode-btn" class="transform-gpu transition-transform hover:-translate-y-1"><img class = "w-8" src="dark.svg"></button>
+        </ul>
+    </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test 1205</title>
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
