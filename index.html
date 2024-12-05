@@ -23,12 +23,12 @@
         }
 
         .fancy-button {
-            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient colors */
+            background: linear-gradient(to right, #38b000, #9ef01a); /* Green gradient */
             color: white;
             font-weight: bold;
             font-size: 16px;
             padding: 12px 24px;
-            border-radius: 25px; /* Rounded corners */
+            border-radius: 25px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
             transition: all 0.3s ease-in-out; /* Smooth transitions */
             border: none;
@@ -37,7 +37,7 @@
 
         .fancy-button:hover {
             transform: scale(1.05); /* Slightly increase size on hover */
-            background: linear-gradient(to right, #feb47b, #ff7e5f); /* Reverse gradient */
+            background: linear-gradient(to right, #9ef01a, #38b000); /* Reverse gradient */
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
         }
 
@@ -55,6 +55,54 @@
         .cancelbtn:hover {
             transform: scale(1.05);
             background-color: #e53935;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background: url('https://via.placeholder.com/500x300') no-repeat center center;
+            background-size: cover;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        .avatar {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -77,7 +125,7 @@
     <h2 class="text-center mt-6 text-2xl font-semibold">Login Form</h2>
     <div class="flex justify-center mt-4">
         <button onclick="document.getElementById('id01').style.display='block'" class="fancy-button">
-            Open Login Form
+            Enter your password
         </button>
     </div>
 
