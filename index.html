@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Design</title>
+    <title>Made BY Devil's</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -18,56 +18,283 @@
         };
     </script>
     <style>
-        /* Optional custom styles for additional tweaks */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .fancy-button {
+            background: linear-gradient(to right, #38b000, #9ef01a); /* Green gradient */
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: all 0.3s ease-in-out; /* Smooth transitions */
+            border: none;
+            cursor: pointer;
+        }
+
+        .fancy-button:hover {
+            transform: scale(1.05); /* Slightly increase size on hover */
+            background: linear-gradient(to right, #9ef01a, #38b000); /* Reverse gradient */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+        }
+
+        .cancelbtn {
+            background-color: #f44336;
+            color: white;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .cancelbtn:hover {
+            transform: scale(1.05);
+            background-color: #e53935;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background: url('img_avatar2.png') no-repeat center center;
+            background-size: cover;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        .avatar {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            cursor: pointer;
+        }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900">
-    <!-- Navigation Bar -->
-    <nav class="flex justify-between items-center w-full p-4 bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500">
-        <span class="text-xl font-bold text-white">
+<body class="flex flex-col items-start bg-gray-100 dark:bg-gray-900">
+    <nav class="flex justify-between w-full h-[74px] bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 p-4">
+        <span class="px-6 py-2 font-semibold text-xl text-white transition-transform transform hover:-translate-y-1">
             Aatif's Website
         </span>
-        <!-- Navigation Links -->
         <ul class="hidden lg:flex space-x-4">
-            <li><a href="#" class="text-white px-3 py-2 rounded hover:bg-orange-500">Home</a></li>
-            <li><a href="#" class="text-white px-3 py-2 rounded hover:bg-orange-500">About Us</a></li>
-            <li><a href="#" class="text-white px-3 py-2 rounded hover:bg-orange-500">YouTube</a></li>
-            <li><a href="#" class="text-white px-3 py-2 rounded hover:bg-orange-500">Join Us</a></li>
+            <a href="https://786promax.github.io/rocketfuel.github.io/"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">Home</li></a>
+            <a href="https://github.com/786promax"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">About Us</li></a>
+            <a href="https://www.youtube.com/@KurulusOsmanUrduatv"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">Youtube</li></a>
+            <a href="https://discord.gg/nickuc-com-plugins-527913497435308042"><li class="border-2 border-slate-200 hover:border-slate-800 transition-transform transform hover:-translate-y-1 px-4 py-1 rounded-full hover:bg-orange-500">Join Us</li></a>
+          
         </ul>
-        <!-- Mobile Menu -->
-        <button class="block lg:hidden text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M3 5h14a1 1 0 110 2H3a1 1 0 010-2zM3 9h14a1 1 0 110 2H3a1 1 0 010-2zM3 13h14a1 1 0 110 2H3a1 1 0 010-2z" clip-rule="evenodd" />
-            </svg>
-        </button>
     </nav>
+</body>
+    <div
+    class="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white transform-gpu transition-transform hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-200 rounded-lg text-gray-900  dark:hover:shadow-green-900 dark:hover:shadow-2xl dark:bg-slate-600">
+    <div class="rounded-t-lg h-32 overflow-hidden">
+        <img class="object-cover object-center h-60 w-96" src='https://img.freepik.com/free-photo/ultra-detailed-nebula-abstract-wallpaper-4_1562-749.jpg' alt='kkkm'>
+    </div>
+    <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white dark:border-black rounded-full overflow-hidden">
+        <img class="object-cover object-center h-[190px] dark:bg-black -my-9 mx-[1px]" src='Screenshot 2024-12-06 201206.png' alt='Woman looking front'>
+    </div>
+    <div class="text-center mt-2">
+        <h2 class="font-semibold dark:text-gray-50">Aatif</h2>
+        <p class="text-gray-500 dark:text-gray-200">Owner/Developer</p>
+    </div>
+    <ul class="py-4 mt-2 text-gray-700 flex items-center justify-around">
+        <li class="flex flex-col items-center justify-around">
+            <img id="user" src="user.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
 
-    <!-- Hero Section -->
-    <div class="max-w-xl mx-auto mt-6 bg-white rounded-lg shadow-lg dark:bg-slate-600">
-        <div class="h-48 w-full bg-cover bg-center rounded-t-lg" style="background-image: url('https://img.freepik.com/free-photo/ultra-detailed-nebula-abstract-wallpaper-4_1562-749.jpg');"></div>
-        <div class="p-4 text-center">
-            <img class="w-20 h-20 mx-auto rounded-full border-4 border-white dark:border-black" src="Screenshot 2024-12-06 201206.png" alt="Aatif">
-            <h2 class="mt-2 font-bold text-gray-900 dark:text-gray-50">Aatif</h2>
-            <p class="text-gray-500 dark:text-gray-200">Owner/Developer</p>
-        </div>
+            <div class="dark:text-white font-semibold">99+</div>
+        </li>
+        <li class="flex flex-col items-center justify-between">
+            <img id="train" src="train.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
+
+            <div class="dark:text-white font-semibold">99+</div>
+        </li>
+        <li class="flex flex-col items-center justify-around">
+            <img id="star" src="star.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
+
+            <div class="dark:text-white font-semibold">99+</div>
+        </li>
+    </ul>
+    <div class="p-4 border-t mx-8 mt-2">
+    </div>
+</div>
+</body>
+<script src="spaghetti.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .fancy-button {
+            background-color: #FF7F50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .fancy-button:hover {
+            background-color: #FF4500;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .avatar {
+            width: 100px;
+            border-radius: 50%;
+        }
+        .container {
+            padding: 16px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        .cancelbtn {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cancelbtn:hover {
+            background-color: #d32f2f;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function redirectToSite(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            
+            const username = document.getElementById('uname').value;
+            const password = document.getElementById('psw').value;
+
+            if (username === 'killman' && password === 'aattiiff') {
+                alert('Login successful!');
+                window.location.href = "https://786promax.github.io/voie.github.io/"; // Redirect to the desired page
+            } else {
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = 'Invalid username or password.';
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h2 style="color:#FFE5B4;" class="text-center mt-6 text-2xl font-semibold">Don't click the button below :</h2>
+    <div class="flex justify-center mt-4">
+        <button onclick="document.getElementById('id01').style.display='block'" class="fancy-button">
+            Don't click me
+        </button>
     </div>
 
-    <!-- Modal -->
-    <div id="id01" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div class="modal-content w-11/12 sm:w-2/3 lg:w-1/3 bg-white p-6 rounded-lg shadow-lg">
-            <span class="close text-black text-2xl absolute right-4 top-4 cursor-pointer">&times;</span>
-            <form onsubmit="redirectToSite(event)">
-                <div class="mb-4">
-                    <label for="uname" class="block text-gray-700">Username</label>
-                    <input type="text" id="uname" class="w-full border rounded px-3 py-2" placeholder="Enter Username">
+    <div id="id01" class="modal">
+        <div class="modal-content">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="op.png" alt="Avatar" class="avatar">
+            </div>
+            <form id="loginForm" onsubmit="return redirectToSite(event)">
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" id="uname" placeholder="Enter Username" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" id="psw" placeholder="Enter Password" required>
+
+                    <button type="submit" class="fancy-button">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
                 </div>
-                <div class="mb-4">
-                    <label for="psw" class="block text-gray-700">Password</label>
-                    <input type="password" id="psw" class="w-full border rounded px-3 py-2" placeholder="Enter Password">
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                        Cancel
+                    </button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
                 </div>
-                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-700">Login</button>
+                <p id="error-message" class="error-message"></p>
             </form>
         </div>
     </div>
+
 </body>
 </html>
