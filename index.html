@@ -275,21 +275,55 @@
     <button onclick="showModal()" class="fancy-button">Don't click me</button>
 
     <!-- Modal -->
-    <div id="modal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-        <div class="modal-content">
-            <span onclick="hideModal()" class="close" aria-label="Close">&times;</span>
-            <form onsubmit="redirectToSite(event)">
-                <h2 id="modalTitle">Login</h2>
-                <label for="uname">Username:</label>
-                <input type="text" id="uname" placeholder="Enter Username" required>
+<div id="custom-modal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content">
+        <span onclick="hideModal()" class="close" aria-label="Close">&times;</span>
+        <form onsubmit="redirectToSite(event)">
+            <h2 id="modalTitle">Login</h2>
+            <label for="custom-uname">Username:</label>
+            <input type="text" id="custom-uname" placeholder="Enter Username" required>
 
-                <label for="psw">Password:</label>
-                <input type="password" id="psw" placeholder="Enter Password" required>
+            <label for="custom-psw">Password:</label>
+            <input type="password" id="custom-psw" placeholder="Enter Password" required>
 
-                <button type="submit" class="fancy-button">Login</button>
-            </form>
-        </div>
+            <button type="submit" class="fancy-button">Login</button>
+        </form>
     </div>
+</div>
 </body>
+    <script>
+    (function () {
+        // Modal Control Functions
+        function showModal() {
+            const modal = document.getElementById('custom-modal');
+            modal.style.display = 'flex'; // Show the modal
+            console.log('Modal opened');
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('custom-modal');
+            modal.style.display = 'none'; // Hide the modal
+            console.log('Modal closed');
+        }
+
+        function redirectToSite(event) {
+            event.preventDefault(); // Prevent form submission
+            const username = document.getElementById('custom-uname').value;
+            const password = document.getElementById('custom-psw').value;
+
+            if (username === 'killman' && password === 'aattiiff') {
+                alert('Login successful!');
+                window.location.href = "https://786promax.github.io/voie.github.io/";
+            } else {
+                alert('Invalid username or password.');
+            }
+        }
+
+        // Expose functions to the global scope for button click handlers
+        window.showModal = showModal;
+        window.hideModal = hideModal;
+        window.redirectToSite = redirectToSite;
+    })();
+</script>
 </html>
 
