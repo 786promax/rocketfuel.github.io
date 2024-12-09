@@ -170,7 +170,7 @@
 </div>
 </body>
 <script src="spaghetti.js"></script>
-   <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -196,7 +196,7 @@
             padding: 20px;
             border-radius: 8px;
             width: 90%;
-            max-width: 400px; /* Adjust for larger screens */
+            max-width: 400px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
@@ -257,17 +257,6 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-
-        @media (min-width: 768px) {
-            .modal-content {
-                padding: 30px;
-            }
-
-            .fancy-button {
-                padding: 15px 30px;
-                font-size: 18px;
-            }
-        }
     </style>
     <script>
         function redirectToSite(event) {
@@ -284,13 +273,23 @@
                 errorMessage.textContent = 'Invalid username or password.';
             }
         }
+
+        function showModal() {
+            const modal = document.getElementById('id01');
+            modal.style.display = 'flex';
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('id01');
+            modal.style.display = 'none';
+        }
     </script>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen">
 
     <h2 class="text-center text-2xl font-semibold text-yellow-400">Don't click the button below:</h2>
     <div class="mt-4">
-        <button onclick="document.getElementById('id01').style.display='flex'" class="fancy-button">
+        <button onclick="showModal()" class="fancy-button">
             Don't click me
         </button>
     </div>
@@ -298,7 +297,7 @@
     <!-- Modal -->
     <div id="id01" class="modal">
         <div class="modal-content">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close">&times;</span>
+            <span onclick="hideModal()" class="close">&times;</span>
             <div class="imgcontainer">
                 <img src="op.png" alt="Avatar" class="avatar">
             </div>
@@ -316,7 +315,7 @@
                     </label>
                 </div>
                 <div class="container bg-gray-100 mt-4 p-2 rounded-lg">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                    <button type="button" onclick="hideModal()" class="cancelbtn">
                         Cancel
                     </button>
                     <span class="psw">Forgot <a href="#">password?</a></span>
@@ -328,4 +327,3 @@
 
 </body>
 </html>
-
