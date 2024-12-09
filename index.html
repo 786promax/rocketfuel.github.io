@@ -125,6 +125,16 @@
             <a href="https://discord.gg/nickuc-com-plugins-527913497435308042"><li class="text-white px-3 py-2 rounded hover:bg-orange-500">Join Us</li></a>
         </ul>
     </nav>
+            <script>
+        // Hamburger Menu Toggle Logic
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden'); // Show or hide the menu
+            mobileMenu.classList.toggle('block');  // Ensure it takes up space when visible
+        });
+    </script>
 </body>
     <div
     class="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white transform-gpu transition-transform hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-200 rounded-lg text-gray-900  dark:hover:shadow-green-900 dark:hover:shadow-2xl dark:bg-slate-600">
