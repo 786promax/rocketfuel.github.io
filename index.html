@@ -107,54 +107,63 @@
     </style>
 </head>
 <body class="flex flex-col items-start bg-gray-100 dark:bg-gray-900">
-    <nav class="flex justify-between w-full h-[74px] bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 p-4">
-        <span class="px-6 py-2 font-semibold text-xl text-white transition-transform transform hover:-translate-y-1">
-            Mr.Kind
-        </span>
-        <button id="hamburger" class="lg:hidden text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M3 5h14a1 1 0 110 2H3a1 1 0 010-2zM3 9h14a1 1 0 110 2H3a1 1 0 010-2zM3 13h14a1 1 0 110 2H3a1 1 0 010-2z" clip-rule="evenodd" />
-            </svg>
-        </button>
-        <ul id="mobileMenu" class="hidden flex-col lg:flex lg:flex-row lg:space-x-4 lg:items-center w-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 lg:bg-transparent lg:shadow-none shadow-lg">
+    <nav class="flex flex-col lg:flex-row justify-between w-full h-auto bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 p-4">
+        <div class="flex justify-between items-center w-full lg:w-auto">
+            <span class="px-6 py-2 font-semibold text-xl text-white transition-transform transform hover:-translate-y-1">
+                Mr.Kind
+            </span>
+            <button id="hamburger" class="lg:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3 5h14a1 1 0 110 2H3a1 1 0 010-2zM3 9h14a1 1 0 110 2H3a1 1 0 010-2zM3 13h14a1 1 0 110 2H3a1 1 0 010-2z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+        <ul id="mobileMenu" class="hidden lg:flex lg:flex-row lg:space-x-4 lg:items-center w-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 lg:bg-transparent lg:shadow-none shadow-lg">
             <a href="https://786promax.github.io/rocketfuel.github.io/"><li class="text-white px-3 py-2 rounded hover:bg-orange-500">Home</li></a>
             <a href="https://github.com/786promax"><li class="text-white px-3 py-2 rounded hover:bg-orange-500">About Us</li></a>
             <a href="https://www.youtube.com/@KurulusOsmanUrduatv"><li class="text-white px-3 py-2 rounded hover:bg-orange-500">Youtube</li></a>
             <a href="https://discord.gg/nickuc-com-plugins-527913497435308042"><li class="text-white px-3 py-2 rounded hover:bg-orange-500">Join Us</li></a>
         </ul>
     </nav>
-</body>
+
     <div
     class="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white transform-gpu transition-transform hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-200 rounded-lg text-gray-900  dark:hover:shadow-green-900 dark:hover:shadow-2xl dark:bg-slate-600">
-    <div class="rounded-t-lg h-32 overflow-hidden">
-        <img class="object-cover object-center h-60 w-96" src='https://img.freepik.com/free-photo/ultra-detailed-nebula-abstract-wallpaper-4_1562-749.jpg' alt='kkkm'>
+        <div class="rounded-t-lg h-32 overflow-hidden">
+            <img class="object-cover object-center h-60 w-96" src='https://img.freepik.com/free-photo/ultra-detailed-nebula-abstract-wallpaper-4_1562-749.jpg' alt='kkkm'>
+        </div>
+        <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white dark:border-black rounded-full overflow-hidden">
+            <img class="object-cover object-center h-[190px] dark:bg-black -my-9 mx-[1px]" src='Screenshot 2024-12-06 201206.png' alt='Woman looking front'>
+        </div>
+        <div class="text-center mt-2">
+            <h2 class="font-semibold dark:text-gray-50">Aatif</h2>
+            <p class="text-gray-500 dark:text-gray-200">Owner/Developer</p>
+        </div>
+        <ul class="py-4 mt-2 text-gray-700 flex items-center justify-around">
+            <li class="flex flex-col items-center justify-around">
+                <img id="user" src="user.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
+                <div class="dark:text-white font-semibold">99+</div>
+            </li>
+            <li class="flex flex-col items-center justify-between">
+                <img id="train" src="train.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
+                <div class="dark:text-white font-semibold">99+</div>
+            </li>
+            <li class="flex flex-col items-center justify-around">
+                <img id="star" src="star.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
+                <div class="dark:text-white font-semibold">99+</div>
+            </li>
+        </ul>
     </div>
-    <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white dark:border-black rounded-full overflow-hidden">
-        <img class="object-cover object-center h-[190px] dark:bg-black -my-9 mx-[1px]" src='Screenshot 2024-12-06 201206.png' alt='Woman looking front'>
-    </div>
-    <div class="text-center mt-2">
-        <h2 class="font-semibold dark:text-gray-50">Aatif</h2>
-        <p class="text-gray-500 dark:text-gray-200">Owner/Developer</p>
-    </div>
-    <ul class="py-4 mt-2 text-gray-700 flex items-center justify-around">
-        <li class="flex flex-col items-center justify-around">
-            <img id="user" src="user.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
 
-            <div class="dark:text-white font-semibold">99+</div>
-        </li>
-        <li class="flex flex-col items-center justify-between">
-            <img id="train" src="train.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
+    <script>
+        // Hamburger Menu Toggle Logic
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-            <div class="dark:text-white font-semibold">99+</div>
-        </li>
-        <li class="flex flex-col items-center justify-around">
-            <img id="star" src="star.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
-
-            <div class="dark:text-white font-semibold">99+</div>
-        </li>
-    </ul>
-    <div class="p-4 border-t mx-8 mt-2">
-    </div>
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden'); // Show or hide the menu
+            mobileMenu.classList.toggle('block');  // Ensure it takes up space when visible
+        });
+    </script>
 </div>
 </body>
 <script src="spaghetti.js"></script>
@@ -259,15 +268,6 @@
                 errorMessage.textContent = 'Invalid username or password.';
             }
         }
-    </script>
-  <script>
-        // JavaScript for Hamburger Menu
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
     </script>
 </head>
 <body>
