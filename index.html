@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" id="Html">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Made By Devil's</title>
-
-    <!-- Tailwind CSS -->
+    <title>Made BY Devil's</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,41 +12,174 @@
                 extend: {
                     colors: {
                         clifford: '#da373d',
-                    },
-                },
-            },
+                    }
+                }
+            }
         };
     </script>
-
-    <!-- Custom Styles -->
     <style>
-        /* Global Styles */
         body {
             font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
         }
 
-        /* Fancy Button */
         .fancy-button {
-            background: linear-gradient(to right, #38b000, #9ef01a);
+            background: linear-gradient(to right, #38b000, #9ef01a); /* Green gradient */
             color: white;
             font-weight: bold;
             font-size: 16px;
             padding: 12px 24px;
             border-radius: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: all 0.3s ease-in-out; /* Smooth transitions */
             border: none;
             cursor: pointer;
         }
 
         .fancy-button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(to right, #9ef01a, #38b000);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05); /* Slightly increase size on hover */
+            background: linear-gradient(to right, #9ef01a, #38b000); /* Reverse gradient */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
         }
 
-        /* Modal Styles */
+        .cancelbtn {
+            background-color: #f44336;
+            color: white;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .cancelbtn:hover {
+            transform: scale(1.05);
+            background-color: #e53935;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background: url('img_avatar2.png') no-repeat center center;
+            background-size: cover;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        .avatar {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-start bg-gray-100 dark:bg-gray-900">
+    <nav class="flex flex-col lg:flex-row justify-between w-full h-auto bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 p-4">
+        <div class="flex justify-between items-center w-full lg:w-auto">
+            <span class="px-6 py-2 font-semibold text-xl text-white transition-transform transform hover:-translate-y-1">
+                Mr.Kind
+            </span>
+            <button id="hamburger" class="lg:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3 5h14a1 1 0 110 2H3a1 1 0 010-2zM3 9h14a1 1 0 110 2H3a1 1 0 010-2zM3 13h14a1 1 0 110 2H3a1 1 0 010-2z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+        <ul id="mobileMenu" class="hidden lg:flex lg:flex-row lg:space-x-4 lg:items-center w-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 lg:bg-transparent lg:shadow-none shadow-lg">
+            <a href="https://786promax.github.io/rocketfuel.github.io/"><li class="text-white px-3 py-2 rounded hover:bg-orange-500">Home</li></a>
+            <a href="https://github.com/786promax"><li class="text-white px-3 py-2 rounded hover:bg-orange-500">About Us</li></a>
+            <a href="https://www.youtube.com/@KurulusOsmanUrduatv"><li class="text-white px-3 py-2 rounded hover:bg-orange-500">Youtube</li></a>
+            <a href="https://discord.gg/nickuc-com-plugins-527913497435308042"><li class="text-white px-3 py-2 rounded hover:bg-orange-500">Join Us</li></a>
+        </ul>
+    </nav>
+
+    <div
+    class="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white transform-gpu transition-transform hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-200 rounded-lg text-gray-900  dark:hover:shadow-green-900 dark:hover:shadow-2xl dark:bg-slate-600">
+        <div class="rounded-t-lg h-32 overflow-hidden">
+            <img class="object-cover object-center h-60 w-96" src='https://img.freepik.com/free-photo/ultra-detailed-nebula-abstract-wallpaper-4_1562-749.jpg' alt='kkkm'>
+        </div>
+        <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white dark:border-black rounded-full overflow-hidden">
+            <img class="object-cover object-center h-[190px] dark:bg-black -my-9 mx-[1px]" src='Screenshot 2024-12-06 201206.png' alt='Woman looking front'>
+        </div>
+        <div class="text-center mt-2">
+            <h2 class="font-semibold dark:text-gray-50">Aatif</h2>
+            <p class="text-gray-500 dark:text-gray-200">Owner/Developer</p>
+        </div>
+        <ul class="py-4 mt-2 text-gray-700 flex items-center justify-around">
+            <li class="flex flex-col items-center justify-around">
+                <img id="user" src="user.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
+                <div class="dark:text-white font-semibold">99+</div>
+            </li>
+            <li class="flex flex-col items-center justify-between">
+                <img id="train" src="train.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
+                <div class="dark:text-white font-semibold">99+</div>
+            </li>
+            <li class="flex flex-col items-center justify-around">
+                <img id="star" src="star.svg" alt="Star Icon" class="w-4 text-blue-900 hover:shadow-lg transform-gpu transition-transform hover:-translate-y-1 hover:shadow-green-300">
+                <div class="dark:text-white font-semibold">99+</div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle Logic
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden'); // Show or hide the menu
+            mobileMenu.classList.toggle('block');  // Ensure it takes up space when visible
+        });
+    </script>
+</div>
+</body>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -71,95 +201,87 @@
             width: 90%;
             max-width: 400px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            position: relative;
         }
 
         .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
             font-size: 24px;
             font-weight: bold;
             color: #aaa;
             cursor: pointer;
+            float: right;
         }
 
         .close:hover {
             color: #000;
         }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .fancy-button {
+            padding: 10px 20px;
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .fancy-button:hover {
+            background-color: #ff4500;
+        }
     </style>
+    <script>
+        // Modal Control Functions
+        function showModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'flex'; // Show the modal
+            console.log('Modal opened');
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none'; // Hide the modal
+            console.log('Modal closed');
+        }
+
+        function redirectToSite(event) {
+            event.preventDefault(); // Prevent form submission
+            const username = document.getElementById('uname').value;
+            const password = document.getElementById('psw').value;
+
+            if (username === 'killman' && password === 'aattiiff') {
+                alert('Login successful!');
+                window.location.href = "https://786promax.github.io/voie.github.io/";
+            } else {
+                alert('Invalid username or password.');
+            }
+        }
+    </script>
 </head>
-
-<body class="bg-gray-100 dark:bg-gray-900">
-
-    <!-- Navigation Bar -->
-    <nav class="flex flex-row justify-between w-full h-auto bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 p-4">
-        <div class="flex justify-between items-center">
-            <span class="px-6 py-2 font-semibold text-xl text-white hover:transform hover:-translate-y-1">
-                Mr.Kind
-            </span>
-        </div>
-        <ul class="flex flex-row space-x-4 items-center">
-            <li><a href="https://786promax.github.io/rocketfuel.github.io/" class="text-white px-3 py-2 rounded hover:bg-orange-500">Home</a></li>
-            <li><a href="https://github.com/786promax" class="text-white px-3 py-2 rounded hover:bg-orange-500">About Us</a></li>
-            <li><a href="https://www.youtube.com/@KurulusOsmanUrduatv" class="text-white px-3 py-2 rounded hover:bg-orange-500">Youtube</a></li>
-            <li><a href="https://discord.gg/nickuc-com-plugins-527913497435308042" class="text-white px-3 py-2 rounded hover:bg-orange-500">Join Us</a></li>
-        </ul>
-    </nav>
-
-    <!-- Fancy Button -->
-    <div class="text-center mt-8">
-        <button onclick="showModal()" class="fancy-button">Click Me</button>
-    </div>
+<body>
+    <button onclick="showModal()" class="fancy-button">Don't click me</button>
 
     <!-- Modal -->
-    <div id="custom-modal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div id="modal" class="modal">
         <div class="modal-content">
-            <span onclick="hideModal()" class="close" aria-label="Close">&times;</span>
+            <span onclick="hideModal()" class="close">&times;</span>
             <form onsubmit="redirectToSite(event)">
-                <h2 id="modalTitle" class="text-center font-bold text-xl">Login</h2>
-                <label for="custom-uname">Username:</label>
-                <input type="text" id="custom-uname" placeholder="Enter Username" required class="border w-full p-2 mt-2 mb-4 rounded">
+                <label for="uname">Username:</label>
+                <input type="text" id="uname" placeholder="Enter Username" required>
 
-                <label for="custom-psw">Password:</label>
-                <input type="password" id="custom-psw" placeholder="Enter Password" required class="border w-full p-2 mt-2 mb-4 rounded">
+                <label for="psw">Password:</label>
+                <input type="password" id="psw" placeholder="Enter Password" required>
 
-                <button type="submit" class="fancy-button w-full">Login</button>
+                <button type="submit" class="fancy-button">Login</button>
             </form>
         </div>
     </div>
-
-    <script>
-        (function () {
-            // Modal Control Functions
-            const modal = document.getElementById('custom-modal');
-
-            window.showModal = function () {
-                modal.style.display = 'flex'; // Show the modal
-                console.log('Modal opened');
-            };
-
-            window.hideModal = function () {
-                modal.style.display = 'none'; // Hide the modal
-                console.log('Modal closed');
-            };
-
-            window.redirectToSite = function (event) {
-                event.preventDefault(); // Prevent form submission
-                const username = document.getElementById('custom-uname').value;
-                const password = document.getElementById('custom-psw').value;
-
-                if (username === 'killman' && password === 'aattiiff') {
-                    alert('Login successful!');
-                    window.location.href = "https://786promax.github.io/voie.github.io/";
-                } else {
-                    alert('Invalid username or password.');
-                }
-            };
-        })();
-    </script>
 </body>
-
 </html>
-
-
