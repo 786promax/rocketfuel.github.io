@@ -2,16 +2,18 @@ from flask import Flask, redirect, url_for, session, request, render_template
 from authlib.integrations.flask_client import OAuth
 import sqlite3
 
-app = Flask(__name__)
-app.secret_key = 'RANDOM_SECRET_KEY'
-oauth = OAuth(app)
+# Configure Flask to look in the root folder for templates and static files
+app = Flask(__name__, template_folder='.', static_folder='.')
 
+app.secret_key = 'RANDOM_SECRET_KEY'
+
+# Set up Google OAuth (replace with your actual credentials)
+oauth = OAuth(app)
 google = oauth.register(
     name='google',
     client_id='617626641717-h7id283c974boc59t4fim555j0qpsguu.apps.googleusercontent.com',
     client_secret='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',
     access_token_url='https://oauth2.googleapis.com/token',
-    access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
     authorize_params={'access_type': 'offline'},
     api_base_url='https://www.googleapis.com/oauth2/v1/',
@@ -51,11 +53,10 @@ def get_name():
 
     return render_template('get_name.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('homepage'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
