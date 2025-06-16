@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>786Kurulus</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-</head>
-        <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script defer src="/static/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -29,30 +28,30 @@
 <body class="bg-gray-100 dark:bg-gray-900">
     <nav class="flex items-center justify-between w-full h-auto bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 p-4">
         <span class="px-6 py-2 font-semibold text-xl text-white transition-transform transform hover:-translate-y-1 whitespace-nowrap">
-           786Kurulus&#8482;
+            786Kurulus&#8482;
         </span>
 
         <div class="flex-1"></div>
 
         <ul id="desktopMenu" class="hidden lg:flex lg:flex-row lg:space-x-6 lg:items-center w-auto">
-        <a href="about.html"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">About Us</li></a>
-        <a href="dc.html"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Discord </li></a>
-        <a href="yt.html"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Youtube</li></a>
-        <a href="order.html"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Order</li></a>
-        {% if user_email %}
-            <a href="/logout">
-                <li class="border-2 border-red-300 hover:border-red-500 transform-gpu transition-transform text-white hover:bg-red-400 hover:text-black hover:-translate-y-1 px-4 rounded-full py-[5px] font-semibold">
-                    Logout
-                </li>
-            </a>
-        {% else %}
-            <a href="/login"><li class="flex items-center space-x-2 border-2 border-yellow-300 hover:border-yellow-500 transform-gpu transition-transform text-white hover:bg-yellow-400 hover:text-black hover:-translate-y-1 px-4 rounded-full py-[5px] font-semibold">
-                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="w-5 h-5" alt="Google logo">
-                    <span>Login</span>
-                </li>
-            </a>
-        {% endif %}
-    </ul>
+            <a href="{% if user_email %}/about{% else %}/login{% endif %}"><li class="btn">About Us</li></a>
+            <a href="{% if user_email %}/dc{% else %}/login{% endif %}"><li class="btn">Discord</li></a>
+            <a href="{% if user_email %}/yt{% else %}/login{% endif %}"><li class="btn">YouTube</li></a>
+            <a href="{% if user_email %}/order{% else %}/login{% endif %}"><li class="btn">Order</li></a>
+
+            {% if user_email %}
+                <a href="/logout">
+                    <li class="btn bg-red-400 border-red-300">Logout</li>
+                </a>
+            {% else %}
+                <a href="/login">
+                    <li class="flex items-center space-x-2 btn bg-yellow-400 text-black">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="w-5 h-5" alt="Google logo">
+                        <span>Login</span>
+                    </li>
+                </a>
+            {% endif %}
+        </ul>
 
         <button id="hamburger" class="lg:hidden text-white ml-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
@@ -62,20 +61,20 @@
     </nav>
 
     <ul id="mobileMenu" class="hidden flex-col items-center w-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 text-white text-lg p-4 absolute top-16 left-0 z-50 shadow-lg">
-        <a href="about.html"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">About Us</li></a>
-        <a href="dc.html"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Discord </li></a>
-        <a href="yt.html"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Youtube</li></a>
-        <a href="order.html"><li class="border-2 border-slate-200 hover:border-2 hover:border-slate-800 transform-gpu transition-transform text-white hover:bg-orange-500 hover:-translate-y-1 px-4 rounded-full py-[5px]">Order</li></a>
+        <a href="{% if user_email %}/about{% else %}/login{% endif %}"><li class="btn">About Us</li></a>
+        <a href="{% if user_email %}/dc{% else %}/login{% endif %}"><li class="btn">Discord</li></a>
+        <a href="{% if user_email %}/yt{% else %}/login{% endif %}"><li class="btn">YouTube</li></a>
+        <a href="{% if user_email %}/order{% else %}/login{% endif %}"><li class="btn">Order</li></a>
+
         {% if user_email %}
-        <a href="/logout"><li class="border-2 border-red-300 hover:border-red-500 transform-gpu transition-transform text-white hover:bg-red-400 hover:text-black hover:-translate-y-1 px-4 rounded-full py-[5px] font-semibold">
-                    Logout
-                </li>
+            <a href="/logout">
+                <li class="btn bg-red-400 border-red-300">Logout</li>
             </a>
         {% else %}
             <a href="/login">
-                <li class="flex items-center space-x-2 border-2 border-yellow-300 hover:border-yellow-500 transform-gpu transition-transform text-white hover:bg-yellow-400 hover:text-black hover:-translate-y-1 px-4 rounded-full py-[5px] font-semibold">
+                <li class="flex items-center space-x-2 btn bg-yellow-400 text-black">
                     <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="w-5 h-5" alt="Google logo">
-                    <span>Login with Google</span>
+                    <span>Login</span>
                 </li>
             </a>
         {% endif %}
@@ -86,16 +85,15 @@
         const mobileMenu = document.getElementById('mobileMenu');
 
         hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden'); // Show or hide the menu
+            mobileMenu.classList.toggle('hidden');
         });
     </script>
-</body>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Best. Trusted.</h1>
-            <p>Experience the essence of Premium Gameplay .</p>
-            <a href="order.html" class="btn">Place an Order</a>
+            <p>Experience the essence of Premium Gameplay.</p>
+            <a href="{% if user_email %}/order{% else %}/login{% endif %}" class="btn">Place an Order</a>
         </div>
     </section>
 
@@ -104,7 +102,7 @@
             <div class="about-text">
                 <h2>Who We Are</h2>
                 <p>At <strong>Mineblood Studio</strong>, We are dedicated to providing high-quality, Gameplay sourced from the finest code. Our mission is to bring Happiness to every home.</p>
-                <a href="about.html" class="btn">About Us</a>
+                <a href="{% if user_email %}/about{% else %}/login{% endif %}" class="btn">About Us</a>
             </div>
         </div>
     </section>
@@ -113,14 +111,12 @@
         <div class="order-content">
             <h2>Order Now</h2>
             <p>Get premium, High-quality And Lagg-less game delivered to you.</p>
-            <a href="order.html" class="btn">🛒 Order Now</a>
+            <a href="{% if user_email %}/order{% else %}/login{% endif %}" class="btn">🛒 Order Now</a>
         </div>
     </section>
-
 
     <footer>
         <p>&copy; 2025 Mineblood Studio PVT. LTD. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
